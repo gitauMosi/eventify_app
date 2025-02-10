@@ -1,3 +1,4 @@
+import 'package:eventify_app/core/theme/theme.dart';
 import 'package:eventify_app/features/main_page.dart';
 import 'package:flutter/material.dart';
 
@@ -12,9 +13,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Event App',
-      theme: ThemeData.dark(),
-      home: MainPage(),
+      debugShowCheckedModeBanner: false,
+      theme: AppTheme.light,
+      darkTheme: AppTheme.dark,
+      home: const MainPage(),
     );
   }
 }
-

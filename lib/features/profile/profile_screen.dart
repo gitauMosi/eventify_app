@@ -7,34 +7,37 @@ class ProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       //backgroundColor: Colors.teal[50],
-    
+
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(20.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-                SizedBox(height: 30,),
-              CircleAvatar(
-                radius: 50,
-                backgroundImage: NetworkImage("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRuNhTZJTtkR6b-ADMhmzPvVwaLuLdz273wvQ&s"), // Add your image in assets
+              const SizedBox(
+                height: 30,
               ),
-              SizedBox(height: 10),
-              Text(
+              const CircleAvatar(
+                radius: 50,
+                backgroundImage: NetworkImage(
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRuNhTZJTtkR6b-ADMhmzPvVwaLuLdz273wvQ&s"), // Add your image in assets
+              ),
+              const SizedBox(height: 10),
+              const Text(
                 'Jon Möller',
                 style: TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(height: 5),
+              const SizedBox(height: 5),
               Text(
                 'Stockholm, Sweden',
                 style: TextStyle(
                   color: Colors.grey[700],
                 ),
               ),
-              SizedBox(height: 5),
+              const SizedBox(height: 5),
               Text(
                 'Visual Designer',
                 style: TextStyle(
@@ -42,22 +45,22 @@ class ProfileScreen extends StatelessWidget {
                   fontSize: 16,
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 16),
               ElevatedButton(
                 onPressed: () {},
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.pink,
+                  backgroundColor: Theme.of(context).colorScheme.primary,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20),
                   ),
                 ),
-                child: Text(
+                child: const Text(
                   'Upgrade Now - Go Pro',
                   style: TextStyle(color: Colors.white),
                 ),
               ),
-              SizedBox(height: 30),
-              SettingsSection(),
+              const SizedBox(height: 30),
+              const SettingsSection(),
             ],
           ),
         ),
@@ -67,6 +70,8 @@ class ProfileScreen extends StatelessWidget {
 }
 
 class SettingsSection extends StatelessWidget {
+  const SettingsSection({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -84,23 +89,23 @@ class SettingsSection extends StatelessWidget {
             style: TextStyle(color: Colors.grey[700]),
           ),
         ),
-        SettingsTile(
+        const SettingsTile(
           icon: Icons.lock,
           title: 'Privacy',
         ),
-        SettingsTile(
+        const SettingsTile(
           icon: Icons.security,
           title: 'Security',
         ),
-        SettingsTile(
+        const SettingsTile(
           icon: Icons.person,
           title: 'Account',
         ),
-        SettingsTile(
+        const SettingsTile(
           icon: Icons.help,
           title: 'Help',
         ),
-        SettingsTile(
+        const SettingsTile(
           icon: Icons.info,
           title: 'About',
         ),
@@ -115,6 +120,7 @@ class SettingsTile extends StatelessWidget {
   final Widget? trailing;
 
   const SettingsTile({
+    super.key,
     required this.icon,
     required this.title,
     this.trailing,
@@ -123,12 +129,12 @@ class SettingsTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      leading: Icon(icon, color: Colors.pink),
+      leading: Icon(icon, color: Theme.of(context).colorScheme.primary,),
       title: Text(
         title,
-        style: TextStyle(fontWeight: FontWeight.w500),
+        style: const TextStyle(fontWeight: FontWeight.w500),
       ),
-      trailing: trailing ?? Icon(Icons.arrow_forward_ios, size: 16),
+      trailing: trailing ?? const Icon(Icons.arrow_forward_ios, size: 16),
       onTap: () {},
     );
   }

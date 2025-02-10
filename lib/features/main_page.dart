@@ -37,8 +37,8 @@ class _MainPageState extends State<MainPage> {
           unselectedItemColor: Colors.grey,
           items: const [
             BottomNavigationBarItem(
-                icon: Icon(Icons.home_outlined),
-                activeIcon: Icon(Icons.home),
+                icon: Icon(Icons.home),
+                activeIcon: Icon(Icons.home_rounded),
                 label: 'home'),
             BottomNavigationBarItem(
                 icon: Icon(Icons.explore_outlined),

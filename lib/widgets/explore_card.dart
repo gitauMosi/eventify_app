@@ -14,13 +14,6 @@ class EventCard extends StatelessWidget {
       decoration: BoxDecoration(
         color: Theme.of(context).cardColor,
         borderRadius: BorderRadius.circular(20),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey[100]!,
-            blurRadius: 6,
-            offset: const Offset(0, 4),
-          ),
-        ],
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -45,7 +38,7 @@ class EventCard extends StatelessWidget {
                   padding:
                       const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: Theme.of(context).cardColor,
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: const Column(
@@ -143,27 +136,25 @@ class EventCard extends StatelessWidget {
           ),
 
           // Join Button
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                ElevatedButton(
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(
+          InkWell(
+            onTap: (){},
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Container(
                     padding: const EdgeInsets.symmetric(
-                        horizontal: 30, vertical: 10),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-
-                    // gradient: const LinearGradient(
-                    //   colors: [Colors.purple, Colors.blue],
-                    // ),
-                  ),
-                  child: const Text('Join'),
-                ),
-              ],
+                        horizontal: 12.0, vertical: 4.0),
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(16),
+                        color: Theme.of(context).colorScheme.onPrimary,
+                        border: Border.all(
+                            color: Colors.grey[500]!.withOpacity(0.4))),
+                    child: const Text('Join'),
+                  )
+                ],
+              ),
             ),
           ),
         ],

@@ -15,27 +15,26 @@ class HomeScreen extends StatelessWidget {
             title: const Text(
               'Eventify',
               style: TextStyle(
-                color: Colors.white,
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
               ),
             ),
             actions: [
               IconButton(
-                icon: const Icon(Icons.notifications, color: Colors.white),
+                icon: const Icon(Icons.notifications, ),
                 onPressed: () {},
               ),
             ],
           ),
           SliverToBoxAdapter(
-            child: _buildBody(),
+            child: _buildBody(context),
           )
         ],
       ),
     );
   }
 
-  Padding _buildBody() {
+  Padding _buildBody(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8.0),
       child: SingleChildScrollView(
@@ -48,7 +47,6 @@ class HomeScreen extends StatelessWidget {
             const Text(
               'Hello John',
               style: TextStyle(
-                color: Colors.white,
                 fontSize: 18,
               ),
             ),
@@ -56,7 +54,6 @@ class HomeScreen extends StatelessWidget {
             const Text(
               'Discover Amazing Events',
               style: TextStyle(
-                color: Colors.white,
                 fontSize: 28,
                 fontWeight: FontWeight.bold,
               ),
@@ -67,7 +64,7 @@ class HomeScreen extends StatelessWidget {
                 hintText: 'Find amazing events',
                 hintStyle: const TextStyle(color: Colors.grey),
                 filled: true,
-                fillColor: Colors.grey[900],
+                fillColor: Theme.of(context).cardColor,
                 prefixIcon: const Icon(Icons.search, color: Colors.grey),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(8),
@@ -75,14 +72,13 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
             ),
-            const SizedBox(height: 24),
+            const SizedBox(height: 16),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 const Text(
                   'Popular Events 🔥',
                   style: TextStyle(
-                    color: Colors.white,
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
                   ),
@@ -106,25 +102,22 @@ class HomeScreen extends StatelessWidget {
                 },
               ),
             ),
-            const SizedBox(height: 24),
+            const SizedBox(height: 16),
             const Text(
               'Top Events',
               style: TextStyle(
-                color: Colors.white,
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
               ),
             ),
             // SizedBox(height: 10),
-            SizedBox(
-              child: ListView.builder(
-                  itemCount: topEventsList.length,
-                  shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
-                  itemBuilder: (context, index) {
-                    return topEventsList[index];
-                  }),
-            )
+            ListView.builder(
+                itemCount: topEventsList.length,
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                itemBuilder: (context, index) {
+                  return topEventsList[index];
+                })
           ],
         ),
       ),

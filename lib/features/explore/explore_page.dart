@@ -1,4 +1,4 @@
-import 'package:eventify_app/core/widgets/explore_card.dart';
+import 'package:eventify_app/widgets/explore_card.dart';
 import 'package:flutter/material.dart';
 
 class ExploreScreen extends StatelessWidget {
@@ -12,14 +12,14 @@ class ExploreScreen extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              Text("UpComming"),
+              const Text("UpComming"),
               ListView.builder(
-                itemCount: 20,
-                shrinkWrap: true,
-                physics: NeverScrollableScrollPhysics(),
-                itemBuilder: (context, index){
-                  return EventCard();
-                })
+                  itemCount: 20,
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  itemBuilder: (context, index) {
+                    return const EventCard();
+                  })
             ],
           ),
         ),
